@@ -1,9 +1,13 @@
-#include<iostream>												
-												
+#include <iostream>
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-  cout<< "Hello world!"<< endl;
+  string str;
+  cout << "Your name:";
+  cin.getline(str);
+  cout<< "Hello world "<< str <<endl;
+
+  return 1;
 }
