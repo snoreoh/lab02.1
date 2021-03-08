@@ -72,7 +72,7 @@
    $ git commit -m"some new updates to hello_world.cpp"
    $ git push origin patch1 
 ```
-4. [x]Проверьте, что ветка `patch1` доступна в удалёный репозитории. 
+4. [x] Проверьте, что ветка `patch1` доступна в удалёный репозитории. 
 5. [x] Cоздайте pull-request `patch1 -> master`.
 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
 7. **commit**, **push**.
@@ -81,7 +81,7 @@
   $ git commit -m"some more new updates to hello_world.cpp" -a
   $ git push origin patch1
 ```
-8. [x]Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
+8. [x] Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
 ```sh
   $ git checkout master
