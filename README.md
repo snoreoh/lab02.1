@@ -4,16 +4,14 @@
 
 ### Part I
 
-1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
+1. [x] Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
+2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
 ```sh
   $ cd snoreoh/workspace/projects
   $ mkdir lab02.1 | cd lab02.1
   $ git init 
   Вывод: Initialized empty Git repository in /home/snoreoh/snoreoh/workspace/projects/lab02.1/.git/
   $ git remote add origin https://github.com/snoreoh/lab02.1.git
-```
-2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
-```sh
   $ touch README.md    //создаем файл 
   $ git add README.md  // добавляем в локальный репозиторий
   $ git commit -m"added README.md"  //заливаем его на github
@@ -173,5 +171,4 @@ Date:   Sun Mar 7 10:22:05 2021 +0300
 ```sh
   $ git checkout master
   $ git merge patch2
-  
 ```
