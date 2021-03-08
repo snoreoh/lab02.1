@@ -107,7 +107,6 @@ Date:   Sun Mar 7 14:10:31 2021 +0300
 
     MORE UPDATES!
 
-    some more new updates to hello_world.cpp
 commit be33a7dbe53f374557ff4965691c73dd44f6c4e3 (HEAD -> master, origin/master, patch1)
 Author: snoreoh <nikita.hrapov@mail.ru>
 Date:   Sun Mar 7 14:10:31 2021 +0300
