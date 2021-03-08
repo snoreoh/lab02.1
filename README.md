@@ -14,14 +14,14 @@
 ```
 2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
 ```sh
-  $ touch README.md
-  $ git add README.md
-  $ git commit -m"added README.md"
+  $ touch README.md    //создаем файл 
+  $ git add README.md  // добавляем в локальный репозиторий
+  $ git commit -m"added README.md"  //заливаем его на github
   $ git push origin master
 ```
 3. Создайте файл `hello_world.cpp` в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу **Hello world** на языке C++ используя плохой стиль кода. Например, после заголовочных файлов вставьте строку `using namespace std;`.
 ```sh
-  $ cat > example/ex1 <<EOF
+  $ cat > example/hello_world.cpp <<EOF //перегрузка потока вывода.ввода
   Ввод:  
   > #include <iostream>
   > 
@@ -40,7 +40,7 @@
 ```
 5. Закоммитьте изменения с *осмысленным* сообщением.
 ```sh
-  $ git commit -m"added hello_World.cpp"
+  $ git commit -m"added hello_world.cpp"
 ```
 6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщение `Hello world from @name`, где `@name` имя пользователя.
 ```sh
@@ -56,14 +56,14 @@
 ```sh
   $ git push origin master
 ```
-9. [x] Проверьте, что история коммитов доступна в удалёный репозитории.
+9.[x] Проверьте, что история коммитов доступна в удалёный репозитории.
 
 ### Part II
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
 1. В локальной копии репозитория создайте локальную ветку `patch1`.
 ```sh
-  $ git сheckout -b patch1
+  $ git сheckout -b patch1  //создаем новую ветку и переходим на нее
 ```
 2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
 ```sh
@@ -74,7 +74,7 @@
    $ git commit -m"some new updates to hello_world.cpp"
    $ git push origin patch1 
 ```
-4. [x] Проверьте, что ветка `patch1` доступна в удалёный репозитории. 
+4. [x]Проверьте, что ветка `patch1` доступна в удалёный репозитории. 
 5. [x] Cоздайте pull-request `patch1 -> master`.
 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
 7. **commit**, **push**.
@@ -83,13 +83,13 @@
   $ git commit -m"some more new updates to hello_world.cpp" -a
   $ git push origin patch1
 ```
-8. [x] Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
+8. [x]Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
 ```sh
   $ git checkout master
-  $ git merge patch1
+  $ git merge patch1  //мержим master и patch1
   $ git push origin master
-  $ git push origin :patch1
+  $ git push origin :patch1  //удаляем patch1 в удаленном репозитории
 ```
 10. Локально выполните **pull**.
 ```sh
@@ -107,6 +107,7 @@ Date:   Sun Mar 7 14:10:31 2021 +0300
 
     MORE UPDATES!
 
+    some more new updates to hello_world.cpp
 commit be33a7dbe53f374557ff4965691c73dd44f6c4e3 (HEAD -> master, origin/master, patch1)
 Author: snoreoh <nikita.hrapov@mail.ru>
 Date:   Sun Mar 7 14:10:31 2021 +0300
@@ -128,7 +129,7 @@ Date:   Sun Mar 7 10:22:05 2021 +0300
 ```
  12. Удалите локальную ветку `patch1`.
 ```sh
-   $ git branch -d patch1
+   $ git branch -d patch1 //удаляем ветку в локальном репозитории
    
    Вывод:
    Deleted branch patch1 (was be33a7d).
@@ -153,6 +154,24 @@ Date:   Sun Mar 7 10:22:05 2021 +0300
 4. [x] В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
 5. [x] Убедитесь, что в pull-request появились *конфликтны*.
 6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
+
+```sh
+  $ git checkout master
+  $ git pull origin master
+  $ git checkout patch2
+  $ git rebase master
+  $ git add helloe_world.cpp
+  $ rebase --continue
+```
+  
 7. Сделайте *force push* в ветку `patch2`
-8. Убедитель, что в pull-request пропали конфликтны. 
+```sh
+  $ git push --force origin patch2
+```
+8. [x] Убедитесь, что в pull-request пропали конфликтны. 
 9. Вмержите pull-request `patch2 -> master`.
+```sh
+  $ git checkout master
+  $ git merge patch2
+  
+```
