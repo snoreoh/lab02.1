@@ -44,6 +44,19 @@
 ```sh
   $ allias edit=nano
   $ edit hello_world.cpp 
+>#include <iostream>
+>
+>using namespace std;
+>
+>int main(int argc, char** argv)
+>{
+> string str;
+> cout << "Your name:";
+>  getline(cin, str);
+>  cout<< "Hello world "<< str <<endl;
+>
+>  return 1;
+>}
 ```
 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
 ```sh
@@ -66,6 +79,18 @@
 2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
 ```sh
   $ edit hello_world.cpp
+>#include <iostream>
+>#include <string>
+>
+>int main(int argc, char** argv)
+>{
+>  std::string str;
+>  std::cout << "Your name:";
+>  getline(std::cin, str); 
+>  std::cout<< "Hello world  from "<< str <<endl; // out'll be: "Hello world form <name>"
+>
+>  return 1;
+>}
 ```
 3. **commit**, **push** локальную ветку в удалённый репозиторий.
 ```sh
@@ -75,6 +100,20 @@
 4. [x] Проверьте, что ветка `patch1` доступна в удалёный репозитории. 
 5. [x] Cоздайте pull-request `patch1 -> master`.
 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
+```sh
+#include <iostream>
+#include <string>
+
+int main(int argc, char** argv)
+{
+  std::string str;
+  std::cout << "Your name:";
+  getline(std::cin, str); 
+  std::cout<< "Hello world  from "<< str <<endl; // out'll be : Hello world for <name>
+
+  return 1;
+}
+```
 7. **commit**, **push**.
 ```sh
   $ edit hello_world.cpp 
@@ -150,6 +189,20 @@ Date:   Sun Mar 7 10:22:05 2021 +0300
   $ git push origin patch2
 ```
 4. [x] В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
+```sh
+include <iostream>
+#include <string>
+
+int main(int argc, char** argv)
+{
+  std::string str;
+  std::cout << "Your name:";
+  getline(std::cin, str); 
+  std::cout<< "Hello world  from "<< str <<endl; // Вывод должен выглядеть: Hello world for <name>
+
+  return 1;
+}
+```
 5. [x] Убедитесь, что в pull-request появились *конфликтны*.
 6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
 
