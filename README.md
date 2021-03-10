@@ -7,19 +7,19 @@
 1. [x] Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
 2. Выполните инструкцию по созданию первого коммита на странице репозитория, созданного на предыдещем шаге.
 ```sh
-  $ cd snoreoh/workspace/projects
-  $ mkdir lab02.1 | cd lab02.1
-  $ git init 
-  Вывод: Initialized empty Git repository in /home/snoreoh/snoreoh/workspace/projects/lab02.1/.git/
-  $ git remote add origin https://github.com/snoreoh/lab02.1.git
+  $ cd snoreoh/workspace/projects //создаем директорию с этой лабой
+  $ mkdir lab02.1 | cd lab02.1  //создаем директорию с этой лабой и перемещаемся в нее
+  $ git init //создаем локальный репозиторий
+  Вывод: Initialized empty Git repository in /home/snoreoh/snoreoh/workspace/projects/lab02.1/.git/ 
+  $ git remote add origin https://github.com/snoreoh/lab02.1.git  //устанавливаем подключение к удаленному репоззиторию 
   $ touch README.md    //создаем файл 
   $ git add README.md  // добавляем в локальный репозиторий
-  $ git commit -m"added README.md"  //заливаем его на github
+  $ git commit -m"added README.md"  //комиттим и заливаем его в удаленный репозиторий на ветку master
   $ git push origin master
 ```
 3. Создайте файл `hello_world.cpp` в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу **Hello world** на языке C++ используя плохой стиль кода. Например, после заголовочных файлов вставьте строку `using namespace std;`.
 ```sh
-  $ cat > example/hello_world.cpp <<EOF //перегрузка потока вывода.ввода
+  $ cat > example/hello_world.cpp <<EOF //перегрузка потока вывода/ввода
   Ввод:  
   > #include <iostream>
   > 
@@ -47,7 +47,7 @@
 ```
 7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
 ```sh
-   $ git commit -m"hello_world.cpp has been changed" -a
+   $ git commit -m"hello_world.cpp has been changed" -a  // -a позволяет не добавлять файл повторно, мы индексируем изменение.
 ```
  
 8. Запуште изменения в удалёный репозиторий.
@@ -91,12 +91,12 @@
 ```
 10. Локально выполните **pull**.
 ```sh
-   $ git pull origin master 
+   $ git pull origin master //загружаем файл в локальный репозиторий
 ```
 
 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
 ```sh
-  $ git pull origin master
+  $ git log //смотрим историю коммитов
   
   Часть вывода:
   commit be33a7dbe53f374557ff4965691c73dd44f6c4e3 (HEAD -> master, origin/master, patch1)
@@ -157,9 +157,9 @@ Date:   Sun Mar 7 10:22:05 2021 +0300
   $ git checkout master
   $ git pull origin master
   $ git checkout patch2
-  $ git rebase master
-  $ git add helloe_world.cpp
-  $ rebase --continue
+  $ git rebase master //пытаемся объединить изменения из одной ветки с изменениями в другой ветке
+  $ git add hello_world.cpp  //устраняем конфликты вручную 
+  $ rebase --continue //объединяем изменения, сделанные в одной ветке, с другой веткой
 ```
   
 7. Сделайте *force push* в ветку `patch2`
